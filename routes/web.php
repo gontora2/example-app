@@ -22,6 +22,7 @@ Route::post('/tweet/create',\App\Http\Controllers\Tweet\CreateController::class)
 //where()をつけることで入力値を制限させることが出来る（下記の場合数字以外が渡された場合404になる）
 Route::get('/tweet/update/{tweetId}',\App\Http\Controllers\Tweet\Update\IndexController::class)->name('tweet.update.index')->where('tweetId','[0-9]+');
 Route::put('/tweet/update/{tweetId}',\App\Http\Controllers\Tweet\Update\PutController::class)->name('tweet.update.put')->where('tweetId','[0-9]+');
+Route::delete('/tweet/delete/{tweetId}',\App\Http\Controllers\Tweet\DeleteController::class)->name('tweet.delete')->where('tweetId','[0-9]+');
 
 //Route::get('/', function () {
 //    return view('welcome');
