@@ -18,7 +18,7 @@
     <form action="{{ route('tweet.update.put', ['tweetId' => $tweet->id]) }}" method="post">
         @method('PUT')
         @csrf
-        <label for="tweet-content">つぶやきa</label>
+        <label for="tweet-content">つぶやきab</label>
         <span>140文字まで</span>
         <textarea id="tweet-content" type="text" name="tweet" placeholder="つぶやきを入力">{{ $tweet->content }}</textarea>
         @error('tweet')
