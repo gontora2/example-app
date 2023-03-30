@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get('/sample',[\App\Http\Controllers\Sample\IndexController::class,'show']);
 Route::get('/sample/{id}',[\App\Http\Controllers\Sample\IndexController::class,'showId']);
 // シングルアクションコントローラの場合、メソッド名が不要
@@ -24,6 +33,10 @@ Route::get('/tweet/update/{tweetId}',\App\Http\Controllers\Tweet\Update\IndexCon
 Route::put('/tweet/update/{tweetId}',\App\Http\Controllers\Tweet\Update\PutController::class)->name('tweet.update.put')->where('tweetId','[0-9]+');
 Route::delete('/tweet/delete/{tweetId}',\App\Http\Controllers\Tweet\DeleteController::class)->name('tweet.delete')->where('tweetId','[0-9]+');
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
