@@ -24,7 +24,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/sample',[\App\Http\Controllers\Sample\IndexController::class,'show']);
 Route::get('/sample/{id}',[\App\Http\Controllers\Sample\IndexController::class,'showId']);
-// シングルアクションコントローラの場合、メソッド名が不要
+// シングルアクションコントローラの場合、メソッド名が不要!!!!!!!
 Route::get('/tweet',\App\Http\Controllers\Tweet\IndexController::class)->name('tweet.index'); 
 //Route::post('/tweet',\App\Http\Controllers\Tweet\IndexController::class)->name('tweet.index'); 
 Route::post('/tweet/create',\App\Http\Controllers\Tweet\CreateController::class)->name('tweet.create');
