@@ -6,10 +6,11 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0,
         maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>つぶやきアプリ</title>
+  <title>つぶやきアプリiiiii</title>
 </head>
 <body>
   <h1>つぶやきアプリ</h1>
+  @auth
   <div>
     <p>投稿フォーム</p>
     @if(session('feedback.success'))
@@ -26,6 +27,7 @@
       <button type="submit">投稿</button>
     </form>
   </div>
+  @endauth
   <div>
     @foreach($tweets as $tweet)
       <details>
