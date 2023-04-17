@@ -18,7 +18,7 @@
     @endif
     <form action="{{route('tweet.create')}}" method="post">
       @csrf
-      <label for="tweet-content">つぶやき</label>
+      <label for="tweet-content">つぶやきー</label>
       <span>140文字まで</span>
       <textarea id="tweet-content" type="text" name="tweet" placeholder="つぶやきを入力"></textarea>
       @error('tweet')
